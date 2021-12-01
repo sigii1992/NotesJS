@@ -5,5 +5,5 @@ const noteContent = document.querySelector("#content");
 const addNoteBtn = document.querySelector("#btn");
 
 addNoteBtn.addEventListener("click", () => {
-  createNote(noteContent.value);
+  createNote(noteTitle.value, noteContent.value);
 });
