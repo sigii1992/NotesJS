@@ -15,11 +15,18 @@
           body: JSON.stringify({ title: `${title}`, content: `${content}` })
         }).then((response) => response.json()).then((data) => {
           const newNoteEl = document.createElement("div");
+          const newTitle = document.createElement("span");
+          const newContent = document.createElement("span");
           const newNoteId = document.querySelectorAll(".note").length - 1;
-          newNoteEl.innerText = data.title;
+          newTitle.innerText = data.title + " ";
+          newContent.innerText = data.content;
           newNoteEl.className = "note";
           newNoteEl.id = "note-" + newNoteId;
           document.body.appendChild(newNoteEl);
+          newNoteEl.append(newTitle);
+          newNoteEl.append(newContent);
+          const substring = (newTitle.innerText + newContent.innerText).substring(0, 19) + "...";
+          console.log(substring);
         });
       };
       module.exports = createNote2;
