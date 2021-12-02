@@ -9,4 +9,5 @@ addNoteBtn.addEventListener("click", () => {
   let content = noteContent.value;
 
   createNote(title, content);
+  // console.log("hey");
 });
