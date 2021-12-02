@@ -65,10 +65,12 @@
   var noteTitle = document.querySelector("#title");
   var noteContent = document.querySelector("#content");
   var addNoteBtn = document.querySelector("#btn");
+  var form = document.querySelector("#note-form");
   addNoteBtn.addEventListener("click", () => {
     let title = noteTitle.value;
     let content = noteContent.value;
     createNote(title, content);
+    form.reset();
   });
   getNotes();
 })();
