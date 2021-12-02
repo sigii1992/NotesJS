@@ -13,8 +13,13 @@
             "Content-Type": "application/json"
           },
           body: JSON.stringify({ title: `${title}`, content: `${content}` })
-        }).then((response) => response.json()).then((response) => {
-          console.log(response);
+        }).then((response) => response.json()).then((data) => {
+          const newNoteEl = document.createElement("div");
+          const newNoteId = document.querySelectorAll(".note").length - 1;
+          newNoteEl.innerText = data.title;
+          newNoteEl.className = "note";
+          newPostEl.id = "note-" + newNoteId;
+          document.body.appendChild(newNoteEl);
         });
       };
       module.exports = createNote2;
@@ -27,6 +32,8 @@
   var noteContent = document.querySelector("#content");
   var addNoteBtn = document.querySelector("#btn");
   addNoteBtn.addEventListener("click", () => {
-    createNote(noteTitle.value, noteContent.value);
+    let title = noteTitle.value;
+    let content = noteContent.value;
+    createNote(title, content);
   });
 })();

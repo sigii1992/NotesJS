@@ -7,8 +7,15 @@ const createNote = (title, content) => {
     body: JSON.stringify({ title: `${title}`, content: `${content}` }),
   })
     .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
+    .then((data) => {
+      // console.log(response);
+      const newNoteEl = document.createElement("div");
+      const newNoteId = document.querySelectorAll(".note").length - 1;
+
+      newNoteEl.innerText = data.title;
+      newNoteEl.className = "note";
+      newPostEl.id = "note-" + newNoteId;
+      document.body.appendChild(newNoteEl);
     });
 };
 
