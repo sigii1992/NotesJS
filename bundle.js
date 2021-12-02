@@ -33,8 +33,35 @@
     }
   });
 
+  // src/getNotes.js
+  var require_getNotes = __commonJS({
+    "src/getNotes.js"(exports, module) {
+      var getNotes2 = () => {
+        fetch("http://localhost:3000/notes").then((response) => response.json()).then((data) => {
+          data.forEach((note) => {
+            const newNoteEl = document.createElement("div");
+            const noteTitle2 = document.createElement("span");
+            const noteContent2 = document.createElement("span");
+            const newNoteId = document.querySelectorAll(".note").length - 1;
+            noteTitle2.innerText = note.title + " ";
+            noteContent2.innerText = note.content;
+            newNoteEl.className = "note";
+            newNoteEl.id = "note-" + newNoteId;
+            document.body.appendChild(newNoteEl);
+            newNoteEl.append(noteTitle2);
+            newNoteEl.append(noteContent2);
+            const substring = (noteTitle2.innerText + noteContent2.innerText).substring(0, 19) + "...";
+            console.log(substring);
+          });
+        });
+      };
+      module.exports = getNotes2;
+    }
+  });
+
   // index.js
   var createNote = require_createNote();
+  var getNotes = require_getNotes();
   var noteTitle = document.querySelector("#title");
   var noteContent = document.querySelector("#content");
   var addNoteBtn = document.querySelector("#btn");
@@ -43,4 +70,5 @@
     let content = noteContent.value;
     createNote(title, content);
   });
+  getNotes();
 })();

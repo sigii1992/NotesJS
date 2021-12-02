@@ -8,7 +8,6 @@ const createNote = (title, content) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log(response);
       const newNoteEl = document.createElement("div");
       const newTitle = document.createElement("span");
       const newContent = document.createElement("span");
