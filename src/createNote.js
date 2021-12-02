@@ -14,7 +14,7 @@ const createNote = (title, content) => {
 
       newNoteEl.innerText = data.title;
       newNoteEl.className = "note";
-      newPostEl.id = "note-" + newNoteId;
+      newNoteEl.id = "note-" + newNoteId;
       document.body.appendChild(newNoteEl);
     });
 };

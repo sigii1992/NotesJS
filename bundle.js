@@ -18,7 +18,7 @@
           const newNoteId = document.querySelectorAll(".note").length - 1;
           newNoteEl.innerText = data.title;
           newNoteEl.className = "note";
-          newPostEl.id = "note-" + newNoteId;
+          newNoteEl.id = "note-" + newNoteId;
           document.body.appendChild(newNoteEl);
         });
       };
